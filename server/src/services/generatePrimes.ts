@@ -1,5 +1,5 @@
 export const generatePrimeNumbers = (n: number) => {
-  let range: boolean[] = new Array(n + 1).fill(true);
+  const range: boolean[] = new Array(n + 1).fill(true);
   range[0] = false;
   range[1] = false;
 
@@ -11,7 +11,7 @@ export const generatePrimeNumbers = (n: number) => {
     }
   }
 
-  let primes = [];
+  const primes = [];
   for (let i = 2; i <= n; i++) {
     if (range[i] && i !== n) {
       primes.push(i);
