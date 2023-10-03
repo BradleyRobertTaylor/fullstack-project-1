@@ -1,9 +1,7 @@
+import { formatAnswer } from "../utils/formatAnswer";
+
 type MedianDisplayProps = {
   answer: number[] | null;
-};
-
-const formatAnswer = (answer: number[]) => {
-  return `[ ${answer.join(", ")} ]`;
 };
 
 export const MedianDisplay = ({ answer }: MedianDisplayProps) => {
@@ -12,7 +10,9 @@ export const MedianDisplay = ({ answer }: MedianDisplayProps) => {
       {answer && (
         <>
           <h2 className="text-lg">Median</h2>
-          <span className="text-4xl">{formatAnswer(answer)}</span>
+          <span data-testid="answer-span" className="text-4xl">
+            {formatAnswer(answer)}
+          </span>
         </>
       )}
     </div>
