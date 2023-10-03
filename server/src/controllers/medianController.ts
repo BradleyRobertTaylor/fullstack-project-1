@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { generatePrimeNumbers } from "../services/generatePrimes";
-import { medianFromList } from "../services/medianService";
+import { generatePrimeNumbers } from "../utils/generatePrimes";
+import { medianFromList } from "../utils/median";
 
 const getMedian = (req: Request, res: Response) => {
   const n = Number(req.params.n);
@@ -10,6 +10,12 @@ const getMedian = (req: Request, res: Response) => {
 
   if (n <= 1) {
     return res.status(400).json({ error: "Number must be greater than 1." });
+  }
+
+  if (n > 1000000) {
+    return res
+      .status(400)
+      .json({ error: "Number must be less than 1,000,000." });
   }
 
   const primes = generatePrimeNumbers(Math.floor(n));

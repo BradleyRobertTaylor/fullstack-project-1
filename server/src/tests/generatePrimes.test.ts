@@ -1,4 +1,4 @@
-import { generatePrimeNumbers } from "../services/generatePrimes";
+import { generatePrimeNumbers } from "../utils/generatePrimes";
 
 test("generatePrimeNumbers doesn't include number n", () => {
   const result = generatePrimeNumbers(11);

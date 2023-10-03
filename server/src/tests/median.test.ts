@@ -1,4 +1,4 @@
-import { medianFromList } from "../services/medianService";
+import { medianFromList } from "../utils/median";
 
 test("Median of [1]", () => {
   const result = medianFromList([1]);
