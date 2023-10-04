@@ -45,3 +45,7 @@ larger than that.
 I implemented some basic tests for the frontend and backend but if I had more time I
 would do more thorough testing. For example, I didn't implement tests for the actual
 express server. I would use something like Supertest to test it.
+
+Instead of sending JSON to the backend for each request I decided to just send it as a
+URL parameter. I didn't think JSON was necessary for such a simple application and simple
+data.
