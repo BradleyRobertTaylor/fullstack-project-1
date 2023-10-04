@@ -6,6 +6,7 @@ To run the project you first need to make sure you have `npm` installed.
 Clone the repository and then cd into it.
 
 ```
+git clone https://github.com/BradleyRobertTaylor/fullstack-project-1.git
 cd fullstack-project-1
 ```
 
