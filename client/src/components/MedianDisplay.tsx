@@ -10,9 +10,7 @@ export const MedianDisplay = ({ answer }: MedianDisplayProps) => {
       {answer && (
         <>
           <h2 className="text-lg">Median</h2>
-          <span data-testid="answer-span" className="text-4xl">
-            {formatAnswer(answer)}
-          </span>
+          <span className="text-4xl">{formatAnswer(answer)}</span>
         </>
       )}
     </div>

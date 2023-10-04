@@ -12,10 +12,10 @@ const getMedian = (req: Request, res: Response) => {
     return res.status(400).json({ error: "Number must be greater than 1." });
   }
 
-  if (n > 1000000) {
+  if (n > 10_000_000) {
     return res
       .status(400)
-      .json({ error: "Number must be less than 1,000,000." });
+      .json({ error: "Number must be less than 10,000,000." });
   }
 
   const primes = generatePrimeNumbers(Math.floor(n));

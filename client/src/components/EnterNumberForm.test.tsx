@@ -9,14 +9,14 @@ import { EnterNumberForm } from "./EnterNumberForm";
 
 test("Enter button rendered", () => {
   const mockFn = jest.fn();
-  render(<EnterNumberForm onSubmit={mockFn} />);
+  render(<EnterNumberForm setAnswer={mockFn} />);
   const button = screen.getByRole("button");
   expect(button).toBeInTheDocument();
 });
 
-test("onSubmit is called", async () => {
+test("setAnswer is called", async () => {
   const mockFn = jest.fn();
-  render(<EnterNumberForm onSubmit={mockFn} />);
+  render(<EnterNumberForm setAnswer={mockFn} />);
   const input = screen.getByRole("textbox");
   const button = screen.getByRole("button");
   const user = userEvent.setup();

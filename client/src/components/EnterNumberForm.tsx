@@ -1,15 +1,36 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
+import { getMedian } from "../services/medianService";
 
 type EnterNumberFormProps = {
-  onSubmit: (userInput: string, callback: () => void) => void;
+  setAnswer: React.Dispatch<React.SetStateAction<number[] | null>>;
 };
 
-export const EnterNumberForm = ({ onSubmit }: EnterNumberFormProps) => {
+export const EnterNumberForm = ({ setAnswer }: EnterNumberFormProps) => {
   const [userInput, setUserInput] = useState("");
-  const reset = () => setUserInput("");
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmit(userInput, reset);
+
+    try {
+      const res = await getMedian(Number(userInput));
+      if (res.error) {
+        toast.error(res.error);
+        setUserInput("");
+        setAnswer(null);
+        return;
+      }
+
+      if (res.median) {
+        setAnswer(res.median);
+        setUserInput("");
+      }
+    } catch (err) {
+      if (err instanceof Error) {
+        toast.error(err.message);
+        setUserInput("");
+        setAnswer(null);
+      }
+    }
   };
 
   return (
